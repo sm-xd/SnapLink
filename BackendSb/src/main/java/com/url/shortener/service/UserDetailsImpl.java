@@ -7,9 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
-public class UserdetailsImpl implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String username;
@@ -17,7 +16,7 @@ public class UserdetailsImpl implements UserDetails {
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserdetailsImpl(Long id, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserDetailsImpl(Long id, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -25,9 +24,9 @@ public class UserdetailsImpl implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserdetailsImpl build(User user) {
+    public static UserDetailsImpl build(User user) {
         GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
-        return new UserdetailsImpl(
+        return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
                 user.getEmail(),
