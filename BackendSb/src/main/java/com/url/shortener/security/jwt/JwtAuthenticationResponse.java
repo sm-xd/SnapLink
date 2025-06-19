@@ -5,8 +5,6 @@ import lombok.Data;
 @Data
 public class JwtAuthenticationResponse {
 
-
-
     private String token;
 
     public String getToken() {
@@ -20,4 +18,6 @@ public class JwtAuthenticationResponse {
     public JwtAuthenticationResponse(String token) {
         this.token = token;
     }
+
+
 }
